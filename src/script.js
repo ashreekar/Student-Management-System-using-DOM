@@ -13,17 +13,19 @@ let tableInsetBaseConatiner = document.querySelector('#tableInsetBaseConatiner')
 // Included test objects and are commented out
 // Object looks something like {name:,sId:,email:,phone}
 const Students = [
-    // { name: 'Ashreek', sId: 'SID1', email: 'ashreek@example.com', phone: '9876543210' },
-    // { name: 'Akash', sId: 'SID2', email: 'akash@example.com', phone: '9876543211' },
-    // { name: 'Sagar', sId: 'SID3', email: 'sagar@example.com', phone: '9876543212' },
-    // { name: 'Pranay', sId: 'SID4', email: 'pranay@example.com', phone: '9876543213' },
-    // { name: 'Parikshith', sId: 'SID5', email: 'parikshith@example.com', phone: '9876543214' },
-    // { name: 'Ruchith', sId: 'SID6', email: 'ruchith@example.com', phone: '9876543215' },
-    // { name: 'Srujan', sId: 'SID7', email: 'srujan@example.com', phone: '9876543216' },
-    // { name: 'Chinmay', sId: 'SID8', email: 'chinmay@example.com', phone: '9876543217' },
-    // { name: 'Chinmay', sId: 'SID9', email: 'chinmay@example.com', phone: '9876543217' },
-    // { name: 'Chinmay', sId: 'SID10', email: 'chinmay@example.com', phone: '9876543217' },
-    // { name: 'Chinmay', sId: 'SID11', email: 'chinmay@example.com', phone: '9876543217' }
+    { name: 'Ashreek', sId: '1001', email: 'ashreek@example.com', phone: '9876543210' },
+    { name: 'Akash', sId: '1002', email: 'akash@example.com', phone: '9876543211' },
+    { name: 'Sagar', sId: '1003', email: 'sagar@example.com', phone: '9876543212' },
+    { name: 'Pranay', sId: '1004', email: 'pranay@example.com', phone: '9876543213' },
+    { name: 'Parikshith', sId: '1005', email: 'parikshith@example.com', phone: '9876543214' },
+    { name: 'Ruchith', sId: '1006', email: 'ruchith@example.com', phone: '9876543215' },
+    { name: 'Srujan', sId: '1007', email: 'srujan@example.com', phone: '9876543216' },
+    { name: 'Chinmay', sId: '1008', email: 'chinmay@example.com', phone: '9876543217' },
+    { name: 'Sweekruthi', sId: '1009', email: 'sweekruthi@example.com', phone: '9843217765' },
+    { name: 'Anushka', sId: '1010', email: 'anu@example.com', phone: '9651877432' },
+    { name: 'Soochana', sId: '1011', email: 'soochana@example.com', phone: '9321784765' },
+     { name: 'Suhani', sId: '1012', email: 'suhani@example.com', phone: '9543286177' },
+      { name: 'Sivani', sId: '1013', email: 'shivani@example.com', phone: '9547213867' }
 ];
 
 // Common fucntion to render the table after every add, update, delete action
@@ -34,7 +36,7 @@ const renderTable = (StudentsList) => {
 
     // Sorting students by Student ID nuber before rendering
     StudentsList.sort(function (sid1, sid2) {
-        return Number(sid1.sId.slice(3) - sid2.sId.slice(3));
+        return Number(sid1.sId - sid2.sId);
     });
 
     StudentsList.map((student) => {
@@ -64,10 +66,15 @@ const renderTable = (StudentsList) => {
         // appendig the table to base container that is tbody
         tableInsetBaseConatiner.appendChild(newRow);
     })
+    if(Students.length == 0){
+        tableInsetBaseConatiner.innerHTML=`<tr class='py-4 text-center text-gray-400'>
+        <td class="px-6 py-20 " colspan="6">No data available as of now, please add students data through form.</td>
+        </tr>`;
+    }
 }
 
 // As this is the first render of table so it will se SID to 1 in value by default before rendering
-sidInput.value = `SID${Students.length + 1}`;
+sidInput.value = `${1000+Students.length + 1}`;
 // first time rendering
 renderTable(Students);
 
@@ -79,6 +86,17 @@ const getStudentData = (event) => {
     //  Id match feature
     // After evry data addition if ID comes out ti be same as other student it will ask again to submit.
     let idMatch = false;
+
+    if(sidInput.value < 1001){
+        alert('Invalid SID. SID starts from 1001');
+        return;
+    }
+
+    // if(!(emailInput.value.contains('@'))){
+    //     alert('Invalid mail id.')
+    //     return ;
+    // }
+
     Students.forEach((student) => {
         if (student.sId == sidInput.value) {
             alert(`Student ID should be unique. This SID is already in the data base. Any SID above ${Students[Students.length - 1].sId} will be accepted`)
@@ -111,7 +129,7 @@ const getStudentData = (event) => {
 
     // Making sure form is cleared except SID
     nameInput.value = '';
-    sidInput.value = `SID00${Students.length + 1}`;
+    sidInput.value = `${1000+Students.length + 1}`;
     emailInput.value = '';
     phInput.value = '';
 
@@ -144,13 +162,20 @@ const deleteOrUpdateDataFromTable = (event) => {
 
     // making sure we clicked on delete
     if (event.target.alt == 'Delete') {
+        if (nameInput.value !== '' || emailInput.value !== '' || phInput.value !== '') {
+        alert(`Please submit before performing another delete operation.`);
+        return;
+    }
         let deletedName;
+        let deletedSid;
         Students.forEach((student) => {
             if (student.sId == toDelete.firstChild.innerText) {
                 deletedName = student.name;
+                deletedSid=student.sId;
                 Students.splice(Students.indexOf(student), 1);
             }
         })
+        sidInput.value=deletedSid;
         renderTable(Students);
         // alert about deletion of student's data
         alert(`${deletedName}'s data deleted sucesfully`)
@@ -158,6 +183,10 @@ const deleteOrUpdateDataFromTable = (event) => {
 
     // making sure we clicked on update
     if (event.target.alt == 'Update') {
+         if (nameInput.value !== '' || emailInput.value !== '' || phInput.value !== '') {
+        alert(`Please submit before performing another update operation.`);
+        return;
+    }
         Students.forEach((student) => {
             if (student.sId == toDelete.firstChild.innerText) {
                 // making sure the data is available in the form again
@@ -165,6 +194,8 @@ const deleteOrUpdateDataFromTable = (event) => {
                 sidInput.value = student.sId;
                 emailInput.value = student.email;
                 phInput.value = student.phone;
+                 alert(`Scroll up or click on home button to update these data 
+name: ${student.name} SID: ${student.sId} Email: ${student.email}. Phone Number: ${student.phone}`);
                 registerBtn.value = 'Update';
 
                 // home button will tell to go home to update
@@ -175,7 +206,6 @@ const deleteOrUpdateDataFromTable = (event) => {
         })
         renderTable(Students);
     }
-
 }
 
 // this event listner is added to tbody where we are only extracting particularly from update or delete button

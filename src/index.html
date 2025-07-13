@@ -9,15 +9,13 @@
 </head>
 
 <body class="overflow-x-hidden" id="mainBody">
-    <header class="text-center p-3 m-5">
+    <header class="text-center p-3 m-3">
         <h1 class="text-2xl sm:text-4xl font-extrabold">Student Registration Form</h1>
+        <p class="text-sm text-gray-500 font-semibold text-center mt-1">This is a student registration system. You can add, delete, update student's data.</p>
     </header>
 
-    <div class="flex justify-center w-[100vw] mb-5">
-        <nav class="w-[65vw] md:w-[35vw] lg:w-[16vw] h-[auto] bg-white rounded-lg text-center text-xl shadow-xl flex overflow-hidden">
-            <a href="#registerForm" class="hover:bg-amber-500 w-[50%] h-[100%] p-2 hover:text-white">Register</a>
-            <a href="#studentDataSection" class="hover:bg-amber-500 w-[50%] h-[100%] p-2 hover:text-white">View Data</a>
-        </nav>
+    <div class="flex justify-center w-[100vw] mb-3">
+            <a href="#studentDataSection" class="hover:bg-amber-500 h-[100%] p-2 hover:text-white w-[32vw] md:w-[16vw] lg:w-[8vw] bg-amber-300 rounded-lg text-center text-xl shadow-xl flex overflow-hidden">View Data</a>
     </div>
 
     <section class="flex w-[100%] justify-center">
@@ -26,14 +24,14 @@
             <h2 class="text-xl md:text-2xl font-bold w-[100%] text-center mb-4 mt-2">Enter Student's details below</h2>
 
             <div class="flex justify-between w-[100%] flex-col md:flex-row">
-                <input type="text" id="nameInput" placeholder="Enter name..."
+                <input type="text" id="nameInput" placeholder="Rama Krishna"
                     class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
                 <label for="nameInput"
                     class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Name</label>
             </div>
 
             <div class="flex justify-between w-[100%] flex-col md:flex-row">
-                <input type="text" id="sidInput" placeholder="SID001"
+                <input type="number" id="sidInput" placeholder="1001"
                     class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
                 <label for="sidInput"
                     class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Student
@@ -41,7 +39,7 @@
             </div>
 
             <div class="flex flex-col md:flex-row justify-between w-[100%]">
-                <input type="email" id="emailInput" placeholder="ramakrishana@example.com"
+                <input type="email" id="emailInput" placeholder="rk@mail.com"
                     class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
                 <label for="emailInput"
                     class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Email</label>
@@ -60,7 +58,7 @@
 
     </section>
 
-    <section class="flex w-[100%] justify-start md:justify-center" id="studentDataSection">
+    <section class="flex w-[100%] justify-start md:justify-center min-h-[100vh]" id="studentDataSection">
         <section class=" shadow-2xl rounded-md m-2 py-5 px-5 flex md:items-center flex-col md:w-[60%] w-[100%]">
             <h2 class="text-xl md:text-2xl font-bold w-[100%] text-center mb-4 mt-2">Student Data</h2>
 
@@ -96,7 +94,13 @@
         </section>
     </section>
 
-     <a href="#mainBody" class="font-extrabold text-[10px] h-10 w-10 p-2 bg-amber-400 rounded-full flex items-center justify-center fixed top-[90vh] right-[5vw] z-10 hover:scale-125 transition-all ease-in-out" id="goHomeBtn"><span>Home</span></a>
+     <a href="#mainBody" class="font-extrabold text-[10px] h-10 w-10 p-2 bg-amber-300 rounded-full flex items-center justify-center fixed top-[90vh] right-[5vw] z-10 hover:scale-125 transition-all ease-in-out" id="goHomeBtn"><span>Home</span></a>
+
+     <footer class="bg-amber-50 w-[100vw] h-[40vh] flex items-center flex-col">
+        <p class="mt-10 font-bold text-gray-500">This is a student registration system devloped as part of the Internshala Full Stack Devlopement Program.</p>
+        <p class="mt-10 font-bold text-gray-500">Developed by Ashreek A R.</p>
+        <p class="mt-10 font-bold text-gray-500"><span class="text-gray-600">©️</span> copyright Ashreek A R. All rights reserved.</p>
+     </footer>
     <script src="script.js"></script>
 </body>
 
