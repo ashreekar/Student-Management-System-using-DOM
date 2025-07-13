@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stuedent Forumm</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="overflow-x-hidden" id="mainBody">
+    <header class="text-center p-3 m-5">
+        <h1 class="text-2xl sm:text-4xl font-extrabold">Student Registration Form</h1>
+    </header>
+
+    <div class="flex justify-center w-[100vw] mb-5">
+        <nav class="w-[65vw] md:w-[35vw] lg:w-[16vw] h-[auto] bg-white rounded-lg text-center text-xl shadow-xl flex overflow-hidden">
+            <a href="#registerForm" class="hover:bg-amber-500 w-[50%] h-[100%] p-2 hover:text-white">Register</a>
+            <a href="#studentDataSection" class="hover:bg-amber-500 w-[50%] h-[100%] p-2 hover:text-white">View Data</a>
+        </nav>
+    </div>
+
+    <section class="flex w-[100%] justify-center">
+        <form
+            class=" shadow-2xl rounded-md m-2 py-5 px-5 flex items-start flex-col w-[85%] md:w-[60%] lg:w-[35%] gap-4 md:gap-y-16 lg:gap-4" id="registerForm">
+            <h2 class="text-xl md:text-2xl font-bold w-[100%] text-center mb-4 mt-2">Enter Student's details below</h2>
+
+            <div class="flex justify-between w-[100%] flex-col md:flex-row">
+                <input type="text" id="nameInput" placeholder="Enter name..."
+                    class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
+                <label for="nameInput"
+                    class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Name</label>
+            </div>
+
+            <div class="flex justify-between w-[100%] flex-col md:flex-row">
+                <input type="text" id="sidInput" placeholder="SID001"
+                    class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
+                <label for="sidInput"
+                    class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Student
+                    ID</label>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between w-[100%]">
+                <input type="email" id="emailInput" placeholder="ramakrishana@example.com"
+                    class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
+                <label for="emailInput"
+                    class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Email</label>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between w-[100%]">
+                <input type="number" id="phInput" placeholder="+91 12345 56789"
+                    class="bg-amber-50 rounded-xl p-3 md:w-52 shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 peer order-2">
+                <label for="phInput"
+                    class="mr-1 md:w-32 peer-focus:font-bold peer-focus:text-amber-700 order-1 md:text-xl lg:text-base">Ph
+                    Number</label>
+            </div>
+
+                <input type="button" class="self-center text-center w-28 bg-amber-300 rounded-lg text-xm font-bold px-2 py-1 shadow-xl md:text-xl registerBtn cursor-pointer" value="Register" id="registerBtn">
+        </form>
+
+    </section>
+
+    <section class="flex w-[100%] justify-start md:justify-center" id="studentDataSection">
+        <section class=" shadow-2xl rounded-md m-2 py-5 px-5 flex md:items-center flex-col md:w-[60%] w-[100%]">
+            <h2 class="text-xl md:text-2xl font-bold w-[100%] text-center mb-4 mt-2">Student Data</h2>
+
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                ID
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Phone
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Update
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Delete
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableInsetBaseConatiner">
+                       
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+     <a href="#mainBody" class="font-extrabold text-[10px] h-10 w-10 p-2 bg-amber-400 rounded-full flex items-center justify-center fixed top-[90vh] right-[5vw] z-10 hover:scale-125 transition-all ease-in-out" id="goHomeBtn"><span>Home</span></a>
+    <script src="script.js"></script>
+</body>
+
+</html>

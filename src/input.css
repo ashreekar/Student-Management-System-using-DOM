@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+*{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.registerBtn{
+    transition: all ease-in-out 0.5s;
+}
+
+.registerBtn:active{
+    scale: 0.8;
+}
