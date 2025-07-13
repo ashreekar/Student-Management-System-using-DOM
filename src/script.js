@@ -13,14 +13,14 @@ let tableInsetBaseConatiner = document.querySelector('#tableInsetBaseConatiner')
 // Included test objects and are commented out
 // Object looks something like {name:,sId:,email:,phone}
 const Students = [
-    { name: 'Ashreek', sId: 'SID1', email: 'ashreek@example.com', phone: '9876543210' },
-    { name: 'Akash', sId: 'SID2', email: 'akash@example.com', phone: '9876543211' },
-    { name: 'Sagar', sId: 'SID3', email: 'sagar@example.com', phone: '9876543212' },
-    { name: 'Pranay', sId: 'SID4', email: 'pranay@example.com', phone: '9876543213' },
-    { name: 'Parikshith', sId: 'SID5', email: 'parikshith@example.com', phone: '9876543214' },
-    { name: 'Ruchith', sId: 'SID6', email: 'ruchith@example.com', phone: '9876543215' },
-    { name: 'Srujan', sId: 'SID7', email: 'srujan@example.com', phone: '9876543216' },
-    { name: 'Chinmay', sId: 'SID8', email: 'chinmay@example.com', phone: '9876543217' },
+    // { name: 'Ashreek', sId: 'SID1', email: 'ashreek@example.com', phone: '9876543210' },
+    // { name: 'Akash', sId: 'SID2', email: 'akash@example.com', phone: '9876543211' },
+    // { name: 'Sagar', sId: 'SID3', email: 'sagar@example.com', phone: '9876543212' },
+    // { name: 'Pranay', sId: 'SID4', email: 'pranay@example.com', phone: '9876543213' },
+    // { name: 'Parikshith', sId: 'SID5', email: 'parikshith@example.com', phone: '9876543214' },
+    // { name: 'Ruchith', sId: 'SID6', email: 'ruchith@example.com', phone: '9876543215' },
+    // { name: 'Srujan', sId: 'SID7', email: 'srujan@example.com', phone: '9876543216' },
+    // { name: 'Chinmay', sId: 'SID8', email: 'chinmay@example.com', phone: '9876543217' },
     // { name: 'Chinmay', sId: 'SID9', email: 'chinmay@example.com', phone: '9876543217' },
     // { name: 'Chinmay', sId: 'SID10', email: 'chinmay@example.com', phone: '9876543217' },
     // { name: 'Chinmay', sId: 'SID11', email: 'chinmay@example.com', phone: '9876543217' }
