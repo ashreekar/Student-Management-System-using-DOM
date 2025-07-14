@@ -13,19 +13,19 @@ let tableInsetBaseConatiner = document.querySelector('#tableInsetBaseConatiner')
 // Included test objects and are commented out
 // Object looks something like {name:,sId:,email:,phone}
 const Students = [
-    { name: 'Ashreek', sId: '1001', email: 'ashreek@example.com', phone: '9876543210' },
-    { name: 'Akash', sId: '1002', email: 'akash@example.com', phone: '9876543211' },
-    { name: 'Sagar', sId: '1003', email: 'sagar@example.com', phone: '9876543212' },
-    { name: 'Pranay', sId: '1004', email: 'pranay@example.com', phone: '9876543213' },
-    { name: 'Parikshith', sId: '1005', email: 'parikshith@example.com', phone: '9876543214' },
-    { name: 'Ruchith', sId: '1006', email: 'ruchith@example.com', phone: '9876543215' },
-    { name: 'Srujan', sId: '1007', email: 'srujan@example.com', phone: '9876543216' },
-    { name: 'Chinmay', sId: '1008', email: 'chinmay@example.com', phone: '9876543217' },
-    { name: 'Sweekruthi', sId: '1009', email: 'sweekruthi@example.com', phone: '9843217765' },
-    { name: 'Anushka', sId: '1010', email: 'anu@example.com', phone: '9651877432' },
-    { name: 'Soochana', sId: '1011', email: 'soochana@example.com', phone: '9321784765' },
-    { name: 'Suhani', sId: '1012', email: 'suhani@example.com', phone: '9543286177' },
-    { name: 'Sivani', sId: '1013', email: 'shivani@example.com', phone: '9547213867' }
+    // { name: 'Ashreek', sId: '1001', email: 'ashreek@example.com', phone: '9876543210' },
+    // { name: 'Akash', sId: '1002', email: 'akash@example.com', phone: '9876543211' },
+    // { name: 'Sagar', sId: '1003', email: 'sagar@example.com', phone: '9876543212' },
+    // { name: 'Pranay', sId: '1004', email: 'pranay@example.com', phone: '9876543213' },
+    // { name: 'Parikshith', sId: '1005', email: 'parikshith@example.com', phone: '9876543214' },
+    // { name: 'Ruchith', sId: '1006', email: 'ruchith@example.com', phone: '9876543215' },
+    // { name: 'Srujan', sId: '1007', email: 'srujan@example.com', phone: '9876543216' },
+    // { name: 'Chinmay', sId: '1008', email: 'chinmay@example.com', phone: '9876543217' },
+    // { name: 'Sweekruthi', sId: '1009', email: 'sweekruthi@example.com', phone: '9843217765' },
+    // { name: 'Anushka', sId: '1010', email: 'anu@example.com', phone: '9651877432' },
+    // { name: 'Soochana', sId: '1011', email: 'soochana@example.com', phone: '9321784765' },
+    // { name: 'Suhani', sId: '1012', email: 'suhani@example.com', phone: '9543286177' },
+    // { name: 'Sivani', sId: '1013', email: 'shivani@example.com', phone: '9547213867' }
 ];
 
 // Common fucntion to render the table after every add, update, delete action

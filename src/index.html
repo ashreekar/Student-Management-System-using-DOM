@@ -9,15 +9,19 @@
 </head>
 
 <body class="overflow-x-hidden" id="mainBody">
+    <!-- header section starts here -->
     <header class="text-center p-3 m-3">
         <h1 class="text-2xl sm:text-4xl font-extrabold">Student Registration Form</h1>
         <p class="text-sm text-gray-500 font-semibold text-center mt-1">This is a student registration system. You can add, delete, update student's data.</p>
     </header>
+     <!-- header section ends here -->
 
+     <!-- Button to navigate to students data  -->
     <div class="flex justify-center w-[100vw] mb-3">
             <a href="#studentDataSection" class="hover:bg-amber-500 h-[100%] p-2 hover:text-white w-[32vw] md:w-[16vw] lg:w-[8vw] bg-amber-300 rounded-lg text-center text-xl shadow-xl flex overflow-hidden">View Data</a>
     </div>
 
+    <!--  form secition starts here -->
     <section class="flex w-[100%] justify-center">
         <form
             class=" shadow-2xl rounded-md m-2 py-5 px-5 flex items-start flex-col w-[85%] md:w-[60%] lg:w-[35%] gap-4 md:gap-y-16 lg:gap-4" id="registerForm">
@@ -57,6 +61,9 @@
         </form>
 
     </section>
+    <!-- form section ends here -->
+
+    <!--  studnet data section starts here -->
 
     <section class="flex w-[100%] justify-start md:justify-center min-h-[100vh]" id="studentDataSection">
         <section class=" shadow-2xl rounded-md m-2 py-5 px-5 flex md:items-center flex-col md:w-[60%] w-[100%]">
@@ -87,20 +94,26 @@
                         </tr>
                     </thead>
                     <tbody id="tableInsetBaseConatiner">
-                       
+                       <!-- This is main coiner where we are adding data as rows using DOM -->
+                        <!--  This is a table body -->
+                          <!--  refrence html can be viewd in script.js -->
                     </tbody>
                 </table>
             </div>
         </section>
     </section>
+ <!--  studnet data section starts here -->
 
+ <!-- samll button this makes form accisible -->
      <a href="#mainBody" class="font-extrabold text-[10px] h-10 w-10 p-2 bg-amber-300 rounded-full flex items-center justify-center fixed top-[90vh] right-[5vw] z-10 hover:scale-125 transition-all ease-in-out" id="goHomeBtn"><span>Home</span></a>
 
+     <!-- footer section strts here -->
      <footer class="bg-amber-50 w-[100vw] h-[40vh] flex items-center flex-col">
         <p class="mt-10 font-bold text-gray-500">This is a student registration system devloped as part of the Internshala Full Stack Devlopement Program.</p>
         <p class="mt-10 font-bold text-gray-500">Developed by Ashreek A R.</p>
         <p class="mt-10 font-bold text-gray-500"><span class="text-gray-600">©️</span> copyright Ashreek A R. All rights reserved.</p>
      </footer>
+     <!-- footer section ends here -->
     <script src="script.js"></script>
 </body>
 
