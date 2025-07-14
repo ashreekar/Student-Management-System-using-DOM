@@ -96,19 +96,20 @@ const getStudentData = (event) => {
 
     // Phone number should have only 10 digits and are numbers
     if (!/^\d{10}$/.test(phInput.value)) {
-        alert("Phone number must be exactly 10 digits.");
+        alert(`Phone number must be exactly 10 digits. Your phone number have ${phInput.value.length} numbers.
+${phInput.value.length < 10 ? 'You might have forget some numbers as entered number is less than 10':'You added extra numbers as numbers is more than 10'}`);
         return;
     }
 
     // Email should have @ and . in proper space
     if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
-        alert("Please enter a valid email id.");
+        alert(`Please enter a valid email id. Email id should look something like this raj123@mail.com`);
         return;
     }
 
     // name should be only have ABCDabcd charcters and white spaces
     if (!/^[A-Za-z\s]+$/.test(nameInput.value)) {
-        alert("Name should have only letters and spaces.");
+        alert(`Name is invalid.Name should have only letters and spaces.`);
         return;
     }
 
