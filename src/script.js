@@ -24,8 +24,8 @@ const Students = [
     { name: 'Sweekruthi', sId: '1009', email: 'sweekruthi@example.com', phone: '9843217765' },
     { name: 'Anushka', sId: '1010', email: 'anu@example.com', phone: '9651877432' },
     { name: 'Soochana', sId: '1011', email: 'soochana@example.com', phone: '9321784765' },
-     { name: 'Suhani', sId: '1012', email: 'suhani@example.com', phone: '9543286177' },
-      { name: 'Sivani', sId: '1013', email: 'shivani@example.com', phone: '9547213867' }
+    { name: 'Suhani', sId: '1012', email: 'suhani@example.com', phone: '9543286177' },
+    { name: 'Sivani', sId: '1013', email: 'shivani@example.com', phone: '9547213867' }
 ];
 
 // Common fucntion to render the table after every add, update, delete action
@@ -66,15 +66,15 @@ const renderTable = (StudentsList) => {
         // appendig the table to base container that is tbody
         tableInsetBaseConatiner.appendChild(newRow);
     })
-    if(Students.length == 0){
-        tableInsetBaseConatiner.innerHTML=`<tr class='py-4 text-center text-gray-400'>
+    if (Students.length == 0) {
+        tableInsetBaseConatiner.innerHTML = `<tr class='py-4 text-center text-gray-400'>
         <td class="px-6 py-20 " colspan="6">No data available as of now, please add students data through form.</td>
         </tr>`;
     }
 }
 
 // As this is the first render of table so it will se SID to 1 in value by default before rendering
-sidInput.value = `${1000+Students.length + 1}`;
+sidInput.value = `${1000 + Students.length + 1}`;
 // first time rendering
 renderTable(Students);
 
@@ -87,15 +87,25 @@ const getStudentData = (event) => {
     // After evry data addition if ID comes out ti be same as other student it will ask again to submit.
     let idMatch = false;
 
-    if(sidInput.value < 1001){
+    if (sidInput.value < 1001) {
         alert('Invalid SID. SID starts from 1001');
         return;
     }
 
-    // if(!(emailInput.value.contains('@'))){
-    //     alert('Invalid mail id.')
-    //     return ;
-    // }
+    if (!/^\d{10}$/.test(phInput.value)) {
+        alert("Phone number must be exactly 10 digits.");
+        return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+        alert("Please enter a valid email id.");
+        return;
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(nameInput.value)) {
+        alert("Name should have only letters and spaces.");
+        return;
+    }
 
     Students.forEach((student) => {
         if (student.sId == sidInput.value) {
@@ -129,7 +139,7 @@ const getStudentData = (event) => {
 
     // Making sure form is cleared except SID
     nameInput.value = '';
-    sidInput.value = `${1000+Students.length + 1}`;
+    sidInput.value = `${1000 + Students.length + 1}`;
     emailInput.value = '';
     phInput.value = '';
 
@@ -163,19 +173,19 @@ const deleteOrUpdateDataFromTable = (event) => {
     // making sure we clicked on delete
     if (event.target.alt == 'Delete') {
         if (nameInput.value !== '' || emailInput.value !== '' || phInput.value !== '') {
-        alert(`Please submit before performing another delete operation.`);
-        return;
-    }
+            alert(`Please submit before performing another delete operation.`);
+            return;
+        }
         let deletedName;
         let deletedSid;
         Students.forEach((student) => {
             if (student.sId == toDelete.firstChild.innerText) {
                 deletedName = student.name;
-                deletedSid=student.sId;
+                deletedSid = student.sId;
                 Students.splice(Students.indexOf(student), 1);
             }
         })
-        sidInput.value=deletedSid;
+        sidInput.value = deletedSid;
         renderTable(Students);
         // alert about deletion of student's data
         alert(`${deletedName}'s data deleted sucesfully`)
@@ -183,10 +193,10 @@ const deleteOrUpdateDataFromTable = (event) => {
 
     // making sure we clicked on update
     if (event.target.alt == 'Update') {
-         if (nameInput.value !== '' || emailInput.value !== '' || phInput.value !== '') {
-        alert(`Please submit before performing another update operation.`);
-        return;
-    }
+        if (nameInput.value !== '' || emailInput.value !== '' || phInput.value !== '') {
+            alert(`Please submit before performing another update operation.`);
+            return;
+        }
         Students.forEach((student) => {
             if (student.sId == toDelete.firstChild.innerText) {
                 // making sure the data is available in the form again
@@ -194,7 +204,7 @@ const deleteOrUpdateDataFromTable = (event) => {
                 sidInput.value = student.sId;
                 emailInput.value = student.email;
                 phInput.value = student.phone;
-                 alert(`Scroll up or click on home button to update these data 
+                alert(`Scroll up or click on home button to update these data 
 name: ${student.name} SID: ${student.sId} Email: ${student.email}. Phone Number: ${student.phone}`);
                 registerBtn.value = 'Update';
 
