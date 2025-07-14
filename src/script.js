@@ -87,21 +87,26 @@ const getStudentData = (event) => {
     // After evry data addition if ID comes out ti be same as other student it will ask again to submit.
     let idMatch = false;
 
+
+    // Validating input values thorugh regex.text
     if (sidInput.value < 1001) {
         alert('Invalid SID. SID starts from 1001');
         return;
     }
 
+    // Phone number should have only 10 digits and are numbers
     if (!/^\d{10}$/.test(phInput.value)) {
         alert("Phone number must be exactly 10 digits.");
         return;
     }
 
+    // Email should have @ and . in proper space
     if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
         alert("Please enter a valid email id.");
         return;
     }
 
+    // name should be only have ABCDabcd charcters and white spaces
     if (!/^[A-Za-z\s]+$/.test(nameInput.value)) {
         alert("Name should have only letters and spaces.");
         return;
