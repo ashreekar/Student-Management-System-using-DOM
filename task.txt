@@ -1,5 +1,5 @@
-1) Make sure student id is only number.
-2) Maku sure student name is only name not any charactrer.
+1) Make sure student id is only number. "Done"
+2) Maku sure student name is only name not any charactrer. " Done"
 3) Add local storage (doubt)
 4) Add a verticle scrollbar dynamically
-5) Text about student registration system
+5) Text about student registration system " Done "
