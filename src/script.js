@@ -12,7 +12,7 @@ let tableInsetBaseConatiner = document.querySelector('#tableInsetBaseConatiner')
 // Created an empty array of objects
 // Included test objects and are commented out
 // Object looks something like {name:,sId:,email:,phone}
-const Students = [
+let Students = [
     // { name: 'Ashreek', sId: '1001', email: 'ashreek@example.com', phone: '9876543210' },
     // { name: 'Akash', sId: '1002', email: 'akash@example.com', phone: '9876543211' },
     // { name: 'Sagar', sId: '1003', email: 'sagar@example.com', phone: '9876543212' },
@@ -27,6 +27,9 @@ const Students = [
     // { name: 'Suhani', sId: '1012', email: 'suhani@example.com', phone: '9543286177' },
     // { name: 'Sivani', sId: '1013', email: 'shivani@example.com', phone: '9547213867' }
 ];
+if (localStorage.getItem('studentsData')) {
+    Students = JSON.parse(localStorage.getItem('studentsData'));
+}
 
 // Common fucntion to render the table after every add, update, delete action
 const renderTable = (StudentsList) => {
@@ -57,10 +60,10 @@ const renderTable = (StudentsList) => {
                                ${phone}
                             </td>
                             <td class="px-6 py-4  ">
-                                <img src="../components/refresh.png" alt="Update" class="h-[30px] w-[30px] rounded-2xl shadow-xl active:scale-75 cursor-pointer updateButton">
+                                <img src="components/refresh.png" alt="Update" class="h-[30px] w-[30px] rounded-2xl shadow-xl active:scale-75 cursor-pointer updateButton">
                             </td>
                             <td class="px-6 py-4 ">
-                                <img src="../components/bin.png" alt="Delete" class="h-[30px] w-[30px] rounded-2xl shadow-xl active:scale-75 cursor-pointer deleteButton">
+                                <img src="components/bin.png" alt="Delete" class="h-[30px] w-[30px] rounded-2xl shadow-xl active:scale-75 cursor-pointer deleteButton">
                             </td>`;
 
         // appendig the table to base container that is tbody
@@ -142,6 +145,7 @@ ${phInput.value.length < 10 ? 'You might have forget some numbers as entered num
 
     // adding the student object to front of the Students array.
     Students.unshift(student);
+    localStorage.setItem('studentsData', JSON.stringify(Students));
 
     // Making sure form is cleared except SID
     nameInput.value = '';
@@ -151,7 +155,6 @@ ${phInput.value.length < 10 ? 'You might have forget some numbers as entered num
 
     // Alerting the user about updation or addition of data
     if (registerBtn.value == 'Update') {
-        // goHomeBtn.class=['font-extrabold', 'text-[10px]', 'h-10', 'w-10', 'p-2', 'bg-amber-400', 'rounded-full', 'flex', 'items-center', 'justify-center', 'fixed', 'top-[90vh]', 'right-[5vw]', 'z-10', 'hover:scale-125', 'transition-all', 'ease-in-out'];
         alert(`${Students[0].name}'s data updated sucessfully.
 Now you can scroll down to view changes at Student ID ${Students[0].sId}.`);
     }
@@ -191,6 +194,7 @@ const deleteOrUpdateDataFromTable = (event) => {
                 Students.splice(Students.indexOf(student), 1);
             }
         })
+        localStorage.setItem('studentsData', JSON.stringify(Students));
         sidInput.value = deletedSid;
         renderTable(Students);
         // alert about deletion of student's data
@@ -214,10 +218,8 @@ const deleteOrUpdateDataFromTable = (event) => {
 name: ${student.name} SID: ${student.sId} Email: ${student.email}. Phone Number: ${student.phone}`);
                 registerBtn.value = 'Update';
 
-                // home button will tell to go home to update
-                // goHomeBtn.classList.add('animate-bounce');
-
                 Students.splice(Students.indexOf(student), 1);
+                localStorage.setItem('studentsData', JSON.stringify(Students));
             }
         })
         renderTable(Students);
